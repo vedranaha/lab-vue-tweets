@@ -1,15 +1,15 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# LAB | vue Tweets 
+# LAB | Vue.js Tweets 
 
 ## Introduction
 
-Passing data through props is an important vue concept that is best understood by hands-on practice. We'll use this exercise to help you solidify your understanding of props. 
+Passing data through *props* is an important Vue.js concept that is best understood by hands-on practice. We'll use this exercise to help you solidify your understanding of props. 
 
 We will be cloning an existing piece of UI from a popular app, Twitter. Let's get started!
 
 <p align="center">
-  <img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-tweets-4.png" width="500">
+  <img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-frontend-vue/lab-vue-tweets-4.png" width="500">
 </p>
 
 ## Setup
@@ -31,7 +31,7 @@ We will be cloning an existing piece of UI from a popular app, Twitter. Let's ge
   ```bash
   git add .
   git commit -m "done"
-  git push origin master
+  git push origin main
   ```
 
 - Create a Pull Request so that your TAs can check your work.
@@ -54,13 +54,13 @@ We will be cloning an existing piece of UI from a popular app, Twitter. Let's ge
 
 ### Iteration 1 | Initial Content
 
-To allow you to focus on vue without having to worry about the styling we provided you with the CSS styles. All the CSS is included in the starter code in the `src/index.css` file. 
+To allow you to focus on Vue.js without having to worry about the styling we provided you with the CSS styles. All the CSS is included in the starter code in the `src/App.vue` file inside the `<style>` tag. 
 
 We have also provided you with the initial content of the `App.vue` and we included the HTML structure for the `Tweet.vue` component. Before you start working take a moment to go over these two files.
 
 Once you initially run the app you should see the following:
 
-![Tweet component after the initial setup](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-vue-tweets-1.png)
+![Tweet component after the initial setup](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-frontend-vue/lab-vue-tweets-1.png)
 
 `Tweet` component is at the moment rendering static content. We will change this in the next iteration. We'll update the `Tweet` component to display the content coming from the `props`.
 
@@ -75,10 +75,11 @@ In `App.vue`, we have an array named `tweetsArray` that holds objects representi
 
 Pass the first data object from the `tweets`  as a prop to the `Tweet` component:
 
-```jsx
-// src/App.vue
-// ...
-<Tweet tweet="tweets" }>
+```vue
+<!-- src/App.vue -->
+<!-- ... -->
+
+<Tweet tweet="tweets" />
 ```
 
 **Display the tweet content in the `Tweet` component**
@@ -89,7 +90,7 @@ Update the `Tweet` component to display the values coming from the `tweet` prop.
 
 Once done, your `Tweet` component should display the following content:
 
-![Tweet component after passing the "tweets" prop](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-vue-tweets-2.png)
+![Tweet component after passing the "tweets" prop](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-frontend-vue/lab-vue-tweets-2.png)
 
 
 ### Iteration 3 | Create the Components
@@ -105,7 +106,8 @@ We will now create new files for the components that we'll make in the following
 
 In the following iterations, you will need to refactor the `Tweet` component. You will be asked to extract parts of the existing HTML structure into new components:
 
-![Example - Refactoring the "Tweet" component](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-vue-tweets-3.png)<br>
+![Example - Refactoring the "Tweet" component](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-frontend-vue/lab-vue-tweets-3.png)
+<br>
 
 **When done with all of the iterations**, the final version of your `Tweet` component will look like this:
 
@@ -113,7 +115,7 @@ In the following iterations, you will need to refactor the `Tweet` component. Yo
 <summary>Click to see the code</summary>
 
 ```vue
-// FINAL VERSION
+<!-- FINAL VERSION -->
 
 <template>
   <div className="tweet">
@@ -168,11 +170,11 @@ Extract the existing `img` tag and render it through the `ProfileImage` componen
 Once done, import the `ProfileImage` component to `Tweet.js`.  After importing it, render the component inside of `Tweet` in the following way:
 
 ```vue
-// ...
+<!-- ... -->
 <template>
   <div className="tweet">
     <ProfileImage image="user.image" />
-// ...
+<!-- ... -->
 ```
 
 **Access the Props**
@@ -186,7 +188,7 @@ Once done, import the `ProfileImage` component to `Tweet.js`.  After importing i
 
 Extract the existing `span` tags displaying the user information and render them through the `User` component:
 
-```jsx
+```vue
 <span className="user">
   <span className="name"> USER_NAME </span>
   <span className="handle">@ USER_HANDLE</span>
@@ -198,7 +200,7 @@ Extract the existing `span` tags displaying the user information and render them
 Import the `User` component to `Tweet.js`.  After importing it, render the component inside of `Tweet` in the following way:
 
 ```vue
-// ...
+<!-- ... -->
 
 <template>
   <div className="tweet">
@@ -208,7 +210,7 @@ Import the `User` component to `Tweet.js`.  After importing it, render the compo
       <div className="top">
         <User userData="user" />
 
-// ...
+<!-- ... -->
 ```
 
 **Access the Props**
@@ -231,8 +233,8 @@ Extract the existing `span` tag displaying the *timestamp* information and rende
 
 Import the `Timestamp` component to `Tweet.js`.  After importing it, render the component inside of `Tweet` in the following way:
 
-```jsx
-// ...
+```vue
+<!-- ... -->
 
 <template>
   <div className="tweet">
@@ -242,7 +244,8 @@ Import the `Timestamp` component to `Tweet.js`.  After importing it, render the 
       <div className="top">
         <User userData="user" />
         <Timestamp time="timestamp" />
-// ...
+
+<!-- ... -->
 ```
 
 
@@ -266,7 +269,7 @@ Extract the existing `p` tag and render it through the `Message` component:
 When done, import the `Message` component and render it in the `Tweet.js` in the following way:
 
 ```vue
-// ...
+<!-- ... -->
 
 <template>
   <div className="tweet">
@@ -279,7 +282,7 @@ When done, import the `Message` component and render it in the `Tweet.js` in the
       </div>
 
       <Message message="message" />
-// ...
+<!-- ... -->
 ```
 
 **Access the Props**
@@ -307,7 +310,7 @@ Extract the existing message `div.actions` tag and render it through the `Action
 When done, import the `Actions` component and render it in the `Tweet.js` like this:
 
 ```vue
-// ...
+<!-- ... -->
 
 <template>
   <div className="tweet">
@@ -321,7 +324,8 @@ When done, import the `Actions` component and render it in the `Tweet.js` like t
 
       <Message message="message" />
       <Actions />
-// ...
+
+<!-- ... -->
 ```
 
 `Actions` component doesn't take any props.
@@ -337,12 +341,12 @@ Once finished, your app should be displaying the following content:
 
 <summary>Click to see the image</summary>
 
-![Example - Final Result](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-vue-tweets-4.png)
+![Example - Final Result](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-frontend-vue/lab-vue-tweets-4.png)
 
-<hr>
-<br>
+
 </details>
 
+<hr>
 
 
 Happy coding! :blue_heart:
