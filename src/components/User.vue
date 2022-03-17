@@ -7,9 +7,12 @@
 
 <script>
 export default {
-    name: "UserComponent",
+    name: "User",
     props: {
         userData: Object,
+    },
+    mounted() {
+      console.log(this.userData)
     }
 }
 </script>

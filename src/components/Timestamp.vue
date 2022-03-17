@@ -1,12 +1,12 @@
 <template>
-   <span className="timestamp">{{ time }}</span>
+   <span className="timestamp">{{ timestamp }}</span>
 </template>
 
 <script>
 export default {
     name: "Timestamp",
     props: {
-        time: String,
+        timestamp: String,
     }
 }
 </script>
